@@ -1,6 +1,6 @@
 # Qflux
 
-TODO: Write a gem description
+A simple command line utility to help generate boilerplate scaffolding for Flux React projects.
 
 ## Installation
 
