@@ -1,6 +1,6 @@
 require 'thor'
 require 'qflux/generators/generate'
-require 'byebug'
+#require 'byebug'
 
 module Qflux
   class Builder < Thor
