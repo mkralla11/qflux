@@ -12,19 +12,17 @@ $ gem install qflux
 
 ## Usage
 
+Create new react flux project
+    $ qflux new my_react_flux_app
 
-```
-# create new react flux project
-$ qflux new my_react_flux_app
+Generate scaffolding for new resource with:
+stores, actions, views, routes, api endpoints, and constants
+    $ qflux generate scaffold resource_name
 
-# generate scaffolding for new resource with:
-# stores, actions, views, routes, api endpoints, and constants
-$ qflux generate scaffold resource_name
+Only generate new view
+    $ qflux generate view view_name
 
-# only generate new view
-$ qflux generate view view_name
-
-#...more to come
+...more to come
 ```
 
 
