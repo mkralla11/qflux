@@ -1,4 +1,7 @@
 require 'thor'
+require 'qflux/generators/generate'
+require 'byebug'
+
 module Qflux
   class Builder < Thor
     desc "new FLUX_APP_NAME", "This will create a new react flux application base project structure."
@@ -18,5 +21,8 @@ module Qflux
       puts "TODO: create flux app with name: #{name}"
     end
 
+
+    desc "generate COMMANDS", "generator sub module for creating a subset of boilerplate."
+    subcommand "generate", Qflux::Generators::Generate
   end
 end
