@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require 'qflux'
+
+Qflux::Builder.start( ARGV )
