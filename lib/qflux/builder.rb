@@ -36,8 +36,11 @@ module Qflux
       File.dirname(__FILE__)
     end
 
-    desc "generate COMMANDS", "generator sub module for creating a subset of boilerplate."
+    GEN_DESC = ["generate COMMANDS", "generator sub module for creating a subset of boilerplate."]
+    
+    desc *GEN_DESC
     subcommand "generate", Qflux::Generators::Generate
+    desc *GEN_DESC
     subcommand "g", Qflux::Generators::Generate
   end
 end

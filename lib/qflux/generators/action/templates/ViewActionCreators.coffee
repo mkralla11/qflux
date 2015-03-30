@@ -1,6 +1,6 @@
-AppDispatcher = require('../dispatcher/AppDispatcher.js')
-Constants = require('../constants/Constants.coffee')
-<%= name.camelize %>API = require('../utils/API/<%= name.camelize %>API.coffee')
+AppDispatcher = require('../../dispatcher/AppDispatcher.js')
+Constants = require('../../constants/Constants.coffee')
+<%= name.camelize %>API = require('../../utils/API/<%= name.camelize %>API.coffee')
 ActionTypes = AppConstants.ActionTypes
 
 module.exports =

@@ -15,11 +15,11 @@ module.exports =
 
   isProduction: isProduction
 
-  PayloadSources: keyMirror(
+  PayloadSources: keyMirror
     SERVER_ACTION: null
     VIEW_ACTION: null
-  )
-  ActionTypes: keyMirror(
+  ,
+  ActionTypes: keyMirror
     LOGIN_GOOGLE_REQUEST: null
     LOGOUT: null
     LOGIN_REQUEST: null
@@ -32,4 +32,9 @@ module.exports =
     # RECEIVE_RESOURCE: null
     # CREATE_RESOURCE: null
     # RECEIVE_CREATED_RESOURCE: null
-  )
+    <% if options[:resource] %>
+    LOAD_<%=name.pluralize.camelize.upcase%>: null
+    LOAD_<%=name.singularize.camelize.upcase%>: null
+    CREATE_<%=name.singularize.camelize.upcase%>: null
+    <%end%><% options[:constants].each do |con| %>
+    <%= con %>: null<%end%>

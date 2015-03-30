@@ -5,13 +5,11 @@ request = require('superagent')
 APIEndpoints = AppConstants.APIEndpoints
 
 
-
-module.exports =
+module.exports = <% if options[:resource] %>
   # load many
-  load<%= name.puralize.camelize %>: ->
+  load<%= name.pluralize.camelize %>: ->
     r = request.get(APIEndpoints.<%= name.pluralize.upcase %>)
     APIUtils.setHeadersAndJson(r)
-
     r.end (res) ->
       norm = APIUtils.normalize<%= name.pluralize.camelize %>Response(res)
       Server<%= name.singularize.camelize %>ActionCreators.receive<%= name.pluralize.camelize %> norm
@@ -23,7 +21,7 @@ module.exports =
     norm = APIUtils.normalize<%= name.singularize.camelize %>Response(res)
     r.end (res) ->
       Server<%= name.singularize.camelize %>ActionCreators.receive<%= name.singularize.camelize %> res
- 
+
   # create one
   create<%= name.singularize.camelize %>: (param1, param2) ->
     r = request.post(APIEndpoints.<%= name.pluralize.upcase %>)
@@ -35,3 +33,11 @@ module.exports =
     .end (res) ->
       norm = APIUtils.normalize<%= name.singularize.camelize %>Response(res)
       Server<%= name.singularize.camelize %>ActionCreators.receiveCreated<%= name.singularize.camelize %> norm
+  <%end%><% options[:api_endpoint_methods].each do |epo| %>
+  <%= epo.to_s %>: () ->
+    APIUtils.setHeadersAndJson(r)
+    norm = APIUtils.normalize<%= name.singularize.camelize %>Response(res)
+    r.end (res) ->
+      Server<%= name.singularize.camelize %>ActionCreators.receive<%= name.singularize.camelize %> res
+  
+  <%end%>

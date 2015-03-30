@@ -1,13 +1,14 @@
 React = require('react')
 RouteHandler = require('react-router').RouteHandler
 PropTypes = React.PropTypes
+<% if options["connect_to_stores"] %>
 connectToStores = require('../utils/ConnectToStores.coffee')
-
+<%end%>
 #Store1 = require(../stores/store1.coffee)
 #Store2 = require(../stores/store2.coffee)
 #Store3 = require(../stores/store3.coffee)
 
-<%= name %> = React.createClass
+<%= template_name %> = React.createClass
   # define props interface here
   propTypes:
     firstProp:  PropTypes.bool.isRequired
@@ -44,9 +45,10 @@ getState = (params) ->
     # Store3State:  Store3.getState()
   }
 
-
-module.exports = connectToStores(<%= name %>, [
+<% if options["connect_to_stores"] %>
+module.exports = connectToStores(<%= template_name %>, [
   #Store1
   #Store2
   #store3
 ], pickProps, getState)
+<%end%>
