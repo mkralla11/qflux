@@ -1,9 +1,13 @@
 require 'thor'
 require 'qflux/generators/generate'
-#require 'byebug'
+require 'active_support/core_ext/string'
+require 'byebug'
 
 module Qflux
   class Builder < Thor
+    include Thor::Actions
+    attr_accessor :name, :full_name
+
     desc "new FLUX_APP_NAME", "This will create a new react flux application base project structure."
 
     long_desc <<-NEW_FLUX_APP_DESC
@@ -17,12 +21,23 @@ module Qflux
      and optional authentication.
 
     NEW_FLUX_APP_DESC
-    def new(name)
-      puts "TODO: create flux app with name: #{name}"
+
+    def new(full_name)
+      self.name = full_name.split("/").last
+      self.full_name = full_name
+      puts "creating new flux app with name: #{name}"
+      directory('%name%')
+      inside full_name do 
+        invoke 'qflux:generators:generate:view', ['App'], layout:true
+      end
     end
 
+    def self.source_root
+      File.dirname(__FILE__)
+    end
 
     desc "generate COMMANDS", "generator sub module for creating a subset of boilerplate."
     subcommand "generate", Qflux::Generators::Generate
+    subcommand "g", Qflux::Generators::Generate
   end
 end

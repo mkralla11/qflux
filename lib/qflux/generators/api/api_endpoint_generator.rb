@@ -1,17 +1,17 @@
 module Qflux
   module Generators
-    module Store
-      module StoreGenerator
+    module Api
+      module ApiEndpointGenerator
         def self.included(thor)
           thor.class_eval do
             include Thor::Actions
             attr_accessor :name, :full_name
             
-            desc "store store_name", "generate a store with given name."
-            def store(full_name)
-              puts "TODO: Generate Store"
+            desc "api_endpoint api_endpoint_name", "generate an api endpoint with given name."
+            def api_endpoint(full_name)
+              puts "TODO: Generate Api Endpoint"
             end
-            
+
           end
         end
       end

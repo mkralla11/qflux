@@ -1,0 +1,14 @@
+{
+  "name": "carrot-frontend",
+  "version": "0.0.2",
+  "dependencies": {
+    "normalize.css": "~3.0.2",
+    "modernizr": "^2.8.3",
+    "bootstrap": "~3.3.2"
+  },
+  "overrides": {
+      "jquery": {
+          "ignore": true
+      }
+  }
+}

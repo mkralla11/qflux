@@ -7,7 +7,7 @@ connectToStores = require('../utils/ConnectToStores.coffee')
 #Store2 = require(../stores/store2.coffee)
 #Store3 = require(../stores/store3.coffee)
 
-<%= name %> = React.createClass
+App = React.createClass
   # define props interface here
   propTypes:
     firstProp:  PropTypes.bool.isRequired
@@ -23,7 +23,7 @@ connectToStores = require('../utils/ConnectToStores.coffee')
     return
 
   render: ->
-    <%= 'RouteHandler' if options["layout"] %>
+    RouteHandler
 
 
 
@@ -45,7 +45,7 @@ getState = (params) ->
   }
 
 
-module.exports = connectToStores(<%= name %>, [
+module.exports = connectToStores(App, [
   #Store1
   #Store2
   #store3
