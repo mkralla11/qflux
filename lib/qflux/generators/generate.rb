@@ -5,6 +5,7 @@ require 'qflux/generators/store/store_generator'
 require 'qflux/generators/view/view_generator'
 require 'qflux/generators/api/api_endpoint_generator'
 require 'qflux/generators/constant/constant_generator'
+require 'qflux/generators/normalize/normalize_generator'
 
 module Qflux
   module Generators
@@ -54,7 +55,13 @@ module Qflux
         Qflux::Generators::Constant::ConstantGenerator, 
         "constant", 
         "constant resource_name", 
-        "generate a api_endpoint with given name."
+        "generate a constant with given name."
+      )
+      register(
+        Qflux::Generators::Normalize::NormalizeGenerator, 
+        "norm", 
+        "norm resource_name", 
+        "generate a normalizer with given name."
       )
     end
   end

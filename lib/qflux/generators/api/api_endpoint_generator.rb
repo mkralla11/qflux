@@ -13,7 +13,7 @@ module Qflux
         
         desc "generate an api endpoint with given name."
         def api_endpoint
-          puts "Generating Route:"
+          puts "Generating Endpoint:"
           self.name = full_name.split("/").last
           self.default_epos = []
           self.dest = options[:api_endpoint_dir] + "/#{full_name}API.coffee"

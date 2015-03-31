@@ -45,5 +45,3 @@ module.exports =
   #   return res if _normalizeErrors(res)
   #   normalize res.body, 
   #     resource: resource
-
-  

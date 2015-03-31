@@ -1,12 +1,15 @@
 React = require('react')
+# instantiate dom element funcs
+{div, a}= React.DOM
+
 RouteHandler = require('react-router').RouteHandler
 PropTypes = React.PropTypes
 <% if options["connect_to_stores"] %>
 connectToStores = require('../utils/ConnectToStores.coffee')
-<%end%>
-#Store1 = require(../stores/store1.coffee)
-#Store2 = require(../stores/store2.coffee)
-#Store3 = require(../stores/store3.coffee)
+#Store1 = require('../stores/store1.coffee')
+#Store2 = require('../stores/store2.coffee')
+#Store3 = require('../stores/store3.coffee')
+<%else%>#Store1 = require('../stores/store1.coffee')<%end%>
 
 <%= template_name %> = React.createClass
   # define props interface here
@@ -14,14 +17,29 @@ connectToStores = require('../utils/ConnectToStores.coffee')
     firstProp:  PropTypes.bool.isRequired
     secondProp: PropTypes.string
     thirdProp:  PropTypes.any
+<% if !options["connect_to_stores"] %>
+  getInitialState: ->
+    # items: Store1.getAllItems()
+    # errors: Store1.getErrors()
 
+  componentDidMount: ->
+    ### BIND: store listeners and dom events ###
+    # Store1.addChangeListener(this._onChange)
+
+  componentWillUnmount: ->
+    ### UNBIND: store listeners and dom events ###
+    # Store1.removeChangeListener(this._onChange)
+
+  _onChange: ->
+    # @setState
+    #   websites: Store1.getAllItems()
+    #   errors: Store1.getErrors()
+<% end %>
   # define private helper methods
   _privateHelper: ->
-    return
 
   # define public helper methods
   publicHelper: ->
-    return
 
   render: ->
     <%= 'RouteHandler' if options["layout"] %>

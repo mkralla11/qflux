@@ -1,6 +1,7 @@
 # Qflux
 
 A simple command line utility to help generate boilerplate scaffolding for Flux React projects.
+Rails Is Not Required.
 
 ## Installation
 
@@ -16,7 +17,7 @@ Create new react flux project
 
     $ qflux new my_react_flux_app
 
-Generate scaffolding for new resource with:
+Then cd into your new project, and generate scaffolding for a new resource with:
 stores, actions, views, routes, api endpoints, and constants
 
     $ qflux generate scaffold resource_name
