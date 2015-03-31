@@ -13,11 +13,12 @@ module Qflux
           puts "Generating Scaffolding for #{full_name}..."
           generators = [
             Qflux::Generators::Action::ActionGenerator,
+            Qflux::Generators::Api::ApiEndpointGenerator,
+            Qflux::Generators::Constant::ConstantGenerator,
+            Qflux::Generators::Normalize::NormalizeGenerator,
             Qflux::Generators::Route::RouteGenerator,
             Qflux::Generators::Store::StoreGenerator,
-            Qflux::Generators::View::ViewGenerator,
-            Qflux::Generators::Api::ApiEndpointGenerator,
-            Qflux::Generators::Constant::ConstantGenerator
+            Qflux::Generators::View::ViewGenerator
           ]
           generators.each do |g|
             invoke g, [full_name], :resource=>true
