@@ -1,7 +1,7 @@
 require 'thor'
 require 'qflux/generators/generate'
 require 'active_support/core_ext/string'
-#require 'byebug'
+require 'byebug'
 
 module Qflux
   class Builder < Thor

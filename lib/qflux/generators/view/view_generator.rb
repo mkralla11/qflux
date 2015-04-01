@@ -16,13 +16,12 @@ module Qflux
         def view
           puts "Generating View(s):"
           self.name = full_name.split("/").last
-
+          self.template_name = full_name.camelize.gsub('::', '')
           if options[:common]
-            self.template_name = full_name
             self.full_path = "common/" + full_name
             render_template
           elsif options[:layout]
-            self.template_name = self.full_path = full_name
+            self.full_path = full_name
             render_template
           else
             self.full_path = full_name.pluralize.downcase + "/"
